@@ -30,8 +30,8 @@ namespace GunapPatcher
 							method.Body.Variables.Clear();
 							method.Body.Instructions.Clear();
 							method.Body.ExceptionHandlers.Clear();
-							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "Cracked by Soheil MV"));
-							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "https://t.me/MVSoft_ir"));
+							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "Cracked by TheHellTower"));
+							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "https://t.me/TheHellTower"));
 							method.Body.Instructions.Add(Instruction.Create(OpCodes.Call, module.Import(typeof(MessageBox).GetMethod("Show", new Type[] { typeof(string), typeof(string) }))));
 							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ret));
 

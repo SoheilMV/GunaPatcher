@@ -6,7 +6,7 @@
 
 ## 📜 What it does ?
 
-This patcher make you able to fully use GunaUI(`Tested on 2.0.4.5`) for free.
+This patcher make you able to fully use GunaUI(`Tested on 2.0.4.6`) for free.
 
 <br>
 
