@@ -10,42 +10,48 @@ namespace GunapPatcher
 {
     class Program
     {
-        private static ModuleDefMD Module = null;
-        private static string NewLocation = string.Empty;
         static void Main(string[] args)
         {
-            Module = ModuleDefMD.Load(args[0]);
+			var module = ModuleDefMD.Load(args[0]);
+			var newLocation = module.Location.Replace(module.Name, "Cracked");
 
-            NewLocation = Module.Location.Replace(Module.Name, $"Cracked");
-            
-            if (Module.Name != "Guna.UI2" && Module.Assembly.Name != "Guna.UI2")
-            {
-                Console.WriteLine("Are you doing this on purpose ?");
-            }
-            else
-            {
-                Console.WriteLine($"[Loaded] {Module.Assembly.Name} | {Module.Assembly.Version}");
-                foreach (TypeDef Type in Module.Types)
-                    foreach (TypeDef NT in Type.NestedTypes.Where(NT => NT.HasMethods && NT.Methods.Count() == 5 && NT.Fields.Count() == 5))
-                        foreach (MethodDef Method in NT.Methods.Where(M => M.HasBody && M.Body.HasInstructions && M.Body.Instructions.Count() > 300))
-                        {
-                            Method.Body.Variables.Clear();
-                            Method.Body.Instructions.Clear();
-                            Method.Body.ExceptionHandlers.Clear();
+			if (module.Name != "Guna.UI2" && module.Assembly.Name != "Guna.UI2" && module.Name != "Guna.Charts.WinForms.dll" && module.Assembly.Name != "Guna.Charts.WinForms")
+				Console.WriteLine("Are you doing this on purpose ?");
+			else
+			{
+				bool cracked = false;
+				Console.WriteLine($"[Loaded] {module.Assembly.Name} | {module.Assembly.Version}");
+				foreach (TypeDef type in module.Types)
+				{
+					foreach (TypeDef nt2 in type.NestedTypes.Where((TypeDef nt) => nt.HasMethods && nt.Methods.Count() == 5 && nt.Fields.Count() == 5))
+					{
+						foreach (MethodDef method in nt2.Methods.Where((MethodDef m) => m.HasBody && m.Body.HasInstructions && m.Body.Instructions.Count() > 300))
+						{
+							method.Body.Variables.Clear();
+							method.Body.Instructions.Clear();
+							method.Body.ExceptionHandlers.Clear();
+							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "Cracked by Soheil MV"));
+							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "https://t.me/MVSoft_ir"));
+							method.Body.Instructions.Add(Instruction.Create(OpCodes.Call, module.Import(typeof(MessageBox).GetMethod("Show", new Type[] { typeof(string), typeof(string) }))));
+							method.Body.Instructions.Add(Instruction.Create(OpCodes.Ret));
 
-                            Method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "Cracked by TheHellTower"));
-                            Method.Body.Instructions.Add(Instruction.Create(OpCodes.Ldstr, "https://t.me/TheHellTower"));
-                            Method.Body.Instructions.Add(Instruction.Create(OpCodes.Call, Module.Import(typeof(System.Windows.Forms.MessageBox).GetMethod("Show", new Type[] { typeof(string), typeof(string) }))));
-                            Method.Body.Instructions.Add(Instruction.Create(OpCodes.Ret));
+							cracked = true;
 
-                            Console.WriteLine("Cracked !");
-                        }
-            }
+							Console.WriteLine($"{method.Name} Cracked!");
+						}
+					}
+				}
 
-            if (!Directory.Exists(NewLocation))
-                Directory.CreateDirectory(NewLocation);
+				if (cracked)
+				{
+					if (!Directory.Exists(newLocation))
+						Directory.CreateDirectory(newLocation);
 
-            Module.Write($"{NewLocation}\\{Module.Name}");
-        }
+					module.Write($"{newLocation}\\{module.Name}");
+
+					Console.ReadKey();
+				}
+			}
+		}
     }
 }
