@@ -1,61 +1,24 @@
-# GunaPatcher
+# 📌GunaPatcher
+This patcher enables you to fully use `Guna products` for free.
 
-> **Warning** The only official codes/examples are here or in one of the linked repositories if any and nowhere else.
+## 🔖Supported products
+* <a href="https://www.nuget.org/packages/Guna.UI2.WinForms" target="_blank">Guna.UI2.WinForms</a> `Tested on 2.0.4.6`
+* <a href="https://www.nuget.org/packages/Guna.Charts.WinForms" target="_blank">Guna.Charts.WinForms</a> `Tested on 1.0.9`
 
-[![CodeFactor](https://www.codefactor.io/repository/github/thehelltower/gunapatcher/badge)](https://www.codefactor.io/repository/github/thehelltower/gunapatcher)
+## 📜How to Patch
+1. Navigate to the desired product page on <a href="https://www.nuget.org/profiles/Sobatdata" target="_blank">NuGet</a>
+2. Download the desired package
+3. Change the package extension from `.nupkg` to `.zip`
+4. Extract it from the compressed format
+5. Navigate to the created folder. Inside, there is a folder named `lib`; enter that folder
+6. Drag and drop each of the libraries into the program, and you will see that they are patched correctly.
 
-## 📜 What it does ?
+## 📜How to Crack
+1. If you haven't installed the desired library yet, create a project and install only the package
+2. Navigate to the address `C:\Users\<USERNAME>\.nuget\packages`
+3. Locate and navigate into the folder for the desired package. Please note that in this section, there are folders with names similar to versions
+4. Navigate into the folder that corresponds to the version of the patched package
+5. Navigate into the `lib` folder and replace the patched files
 
-This patcher make you able to fully use GunaUI(`Tested on 2.0.4.6`) for free.
-
-<br>
-
-## 🎥 Preview
-
-[Click Here For Video](https://i.imgur.com/isAADUd.mp4)
-## 🌟 Stars
-
-- None
-
-## 📚 FAQ
-
-<details>
-    <summary>
-        Will you update this long-term ?
-    </summary>
-    Not sure, depend on Guna I believe.
-</details>
-<details>
-    <summary>
-        Can I support the project ?
-    </summary>
-    Yes, you can either "sponsor" me with the button on my profile or donate by going there: https://github.com/TheHellTower#-support-my-work and read, if you want to donate through PayPal you can add me on Discord, click here to see my Discord: https://github.com/TheHellTower#-socials.
-</details>
-<details>
-    <summary>
-        Can I contribute to the project ?
-    </summary>
-    Yes, feel free to fork it, updated it as you wish as long as you don't break it and open a PR that will be reviewed !
-</details>
-<details>
-    <summary>
-        I need some help, do you give support ?
-    </summary>
-    No.
-</details>
-<details>
-    <summary>
-        Can you make me a custom patcher with everything I need ?
-    </summary>
-    Yes and no, I can't just do that and see a bunch of people in my DMs. However, You can send me an email at: "thehelltower@tuta.io" with your offer(price, etc..)
-
-    Note: Support for the first month included(more if the offer nice) and payment is sent only after preview.
-</details>
-<details>
-    <summary>
-        I have a question, can I contact you ?
-    </summary>
-    Yes you can either by opening a issue: https://github.com/TheHellTower/GunaPatcher/issues/new or send me an email at: "thehelltower@tuta.io" or contact me on one of my socials here: https://github.com/TheHellTower#-socials
-
-    Note: Only for questions no code support.
-</details>
+# Credits
+I express my gratitude to `TheHellTower` for creating such a project. All rights are reserved for it.
